@@ -1,18 +1,18 @@
-import { useState } from "react";
+import useFilters from "../utils/useFilters";
 
-const Filters = ({ setFilter }) => {
-  const [price, setPrice] = useState(0);
+const Filters = () => {
+  const { filters, setFilters } = useFilters();
+  console.log(filters);
   const handleChangeRange = (e) => {
     e.preventDefault();
-    setPrice(e.target.value);
-    setFilter((prev) => ({
+    setFilters((prev) => ({
       ...prev,
-      minPrice: price,
+      minPrice: e.target.value,
     }));
   };
   const handleChangeSelect = (e) => {
     e.preventDefault();
-    setFilter((prev) => ({
+    setFilters((prev) => ({
       ...prev,
       category: e.target.value,
     }));
@@ -27,9 +27,10 @@ const Filters = ({ setFilter }) => {
           id="range"
           min="0"
           max="1500"
+          value={filters.minPrice}
           onChange={handleChangeRange}
         />
-        <span>{price}</span>
+        <span>{filters.minPrice}</span>
       </div>
       <div>
         <label htmlFor="">Categories</label>

@@ -6,12 +6,12 @@ import Filters from "./components/Filters";
 import useFilters from "./utils/useFilters";
 
 function App() {
-  const { filter, setFilter, getFilteredProducts } = useFilters();
+  const { getFilteredProducts } = useFilters();
   const filteredProducts = getFilteredProducts(products);
   return (
     <>
       <Header>
-        <Filters filter={filter} setFilter={setFilter} />
+        <Filters />
       </Header>
       <Products products={filteredProducts} />
     </>
