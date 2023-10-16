@@ -1,10 +1,8 @@
-import Filters from "./Filters";
-
-const Header = ({ setFilter }) => {
+const Header = ({ children }) => {
   return (
     <div>
       <h1>Shopping</h1>
-      <Filters filter={filter} setFilter={setFilter} />
+      {children}
     </div>
   );
 };
